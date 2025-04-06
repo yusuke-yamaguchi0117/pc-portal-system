@@ -1,0 +1,1 @@
+ALTER TABLE lesson_slots ADD COLUMN lesson_day VARCHAR(10) NOT NULL DEFAULT '' AFTER type;

@@ -1,0 +1,170 @@
+/* 変数定義 */
+:root {
+    --header-height: 60px;
+    --sidebar-width: 250px;
+    --border-color: #dee2e6;
+    --primary-color: #0d6efd;
+    --bg-light: #f8f9fa;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --spacing-base: 1rem;
+}
+
+/* グローバルスタイル */
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    padding-top: var(--header-height);
+}
+
+/* レイアウト */
+.wrapper {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+}
+
+/* サイドバー */
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: calc(100vh - var(--header-height));
+    background: var(--bg-light);
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    padding: var(--spacing-base) 0;
+    z-index: 100;
+    border-right: 1px solid var(--border-color);
+}
+
+.position-sticky {
+    position: sticky;
+    top: 0;
+    height: calc(100vh - var(--header-height));
+    padding-top: calc(var(--spacing-base) * 0.5);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* メインコンテンツ */
+.content-wrapper {
+    width: calc(100% - var(--sidebar-width));
+    margin-left: var(--sidebar-width);
+    padding: var(--spacing-base);
+}
+
+/* ナビゲーションバー */
+.navbar {
+    height: var(--header-height);
+    background-color: var(--primary-color) !important;
+    padding: 0 var(--spacing-base);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 1.25rem;
+    padding: 0;
+    margin: 0;
+    line-height: var(--header-height);
+}
+
+/* ナビゲーションリンク */
+.nav-link {
+    color: #333;
+    padding: calc(var(--spacing-base) * 0.8) calc(var(--spacing-base) * 1.5);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: calc(var(--spacing-base) * 0.5);
+}
+
+/* カード */
+.card {
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-base);
+}
+
+.card-header {
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-base);
+}
+
+.card-body {
+    padding: var(--spacing-base);
+}
+
+/* リストグループ */
+.list-group-item {
+    border: 1px solid var(--border-color);
+    margin-bottom: -1px;
+    padding: var(--spacing-base);
+}
+
+/* 授業の様子 */
+.lesson-post-card {
+    height: 100%;
+}
+
+.lesson-post-image {
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.lesson-post-tabs .nav-link {
+    white-space: nowrap;
+}
+
+/* モーダル */
+.modal-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* タブコンテンツ */
+.tab-content {
+    margin-top: var(--spacing-base);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+        min-height: auto;
+    }
+
+    .content-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .position-sticky {
+        height: auto;
+        position: static;
+    }
+
+    .lesson-post-image {
+        height: 150px;
+    }
+}
